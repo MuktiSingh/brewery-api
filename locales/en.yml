@@ -1,0 +1,180 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   "true": "foo"
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+
+  registrations:
+    create_user:
+      verify_email: "Verify your email to login"
+    login_user:
+      not_verified: "User email not verified"
+      invalid: "Invalid email/password combination"
+    logout:
+      logged_out: "You have been logged out"
+    resend_verification_email:
+      already_verified: "Email already verified, Login to continue"
+      sent_verification_email: "Verification email sent"
+    verify_email:
+      already_verified: "Email already verified, Login to continue"
+      verified: "Email verified successfully, Login to continue"
+      unsuccessful_verification: "Email verification not successful, try again"
+    reset_password_email:
+      reset_password_email: "Email to reset password has been sent"
+      invalid_user: "User with email '%{email}' doesn't exist"
+    reset_password_edit:
+      auth_unsuccessful: "User authentication not successful, try again"
+    update_password:
+      password_changed: "Password successfully changed"
+
+  admin:
+    users:
+      create:
+        success: "User was successfully created."
+      update:
+        success: "User was successfully updated."
+      destroy:
+        success: "User was successfully destroyed."
+        failure: "Unable to destroy this user"
+      send_authentication_email:
+        email_sent: "Verification email sent to the user"
+      send_password_reset_email:
+        email_sent: "Reset password email sent to the user"
+
+    branches:
+      create:
+        success: "Branch was successfully created."
+      update:
+        success: "Branch was successfully updated."
+      destroy:
+        success: "Branch was successfully destroyed."
+        failure: "Unable to destroy branch"
+      create_meal:
+        success: "Meal was successfully added."
+      destroy_meal:
+        success: "Meal was successfully removed."
+        failure: "Unable to remove meal"
+
+    ingredients:
+      create:
+        success: "Ingredient was successfully created."
+      update:
+        success: "Ingredient was successfully updated."
+      destroy:
+        success: "Ingredient was successfully destroyed."
+        failure: "Unable to destroy ingredient."
+
+    inventories:
+      create:
+        success: "Inventory was successfully created."
+      update:
+        success: "Inventory was successfully updated."
+      destroy:
+        success: "Inventory was successfully destroyed."
+        failure: "Unable to destroy inventory."
+      destroy_log:
+        success: "Inventory log was successfully destroyed"
+        failure: "Unable to destroy inventory log"
+
+    meals:
+      create:
+        success: "Meal was successfully created."
+      update:
+        success: "Meal was successfully updated."
+      destroy:
+        success: "Meal was successfully destroyed."
+        failure: "Unable to destroy meal."
+
+  orders:
+    destroy_line_item:
+      success: "Item removed successfully"
+      failure: "Unable to destroy line item"
+    empty_cart:
+      success: "Cart succesfully emptied"
+    checkout:
+      unsuccessful: "Payment Unsuccessful"
+    mark_cancel:
+      success: "Order was cancelled successfully"
+      failure: "Cannot cancel this order now"
+
+  helpers:
+    submit:
+      create: "Register"
+      update: "Save Changes"
+
+  user_mailer:
+    confirmation:
+      subject: "CHAMPS : Verify your email"
+    reset_password:
+      subject: "CHAMPS : Reset Password"
+
+  order_mailer:
+    confirmation:
+      subject: "CHAMPS : Order Successful"
+
+  notice:
+    application:
+      logged_in: "Already Logged In"
+      login_request: "Please log in"
+
+  errors:
+    messages:
+      content_type_invalid: "should be a JPG/JPEG or PNG file"
+      file_size_out_of_range: "should be less than %{max_size}"
+    users:
+      not_found: "User not found"
+    branches:
+      not_found: "Branch not found"
+      meal_not_found: "Meal not found for the branch"
+    ingredients:
+      not_found: "Ingredient not found"
+    inventories:
+      not_found: "Inventory not found"
+    meals:
+      not_found: "Meal not found"
+    require_admin:
+      access_denied: "You don't have privilage to access that section"
+    line_item:
+      not_found: "Item not found"
+    orders:
+      not_found: "Order not found"
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            base:
+              last_admin: "The last admin cannot be destroyed."
+        branch:
+          attributes:
+            default:
+              present: "already present"

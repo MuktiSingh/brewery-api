@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top", style="background-color: #d9d9d9;">
+  <div class="container-fluid">
+    <a class="navbar-brand  me-2" href="/">
+      <%= image_tag 'logo.png', alt: 'CHAMPS', width: 40 %>
+    </a>
+    <button class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarButtonsExample"
+            aria-controls="navbarButtonsExample"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to 'Home', root_path, class: "nav-link #{'active' if current_page?(root_path)}" %>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <% if cookies[:identifier] %>
+          <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-primary" %>
+        <% else %>
+          <%= button_to "Login", login_path, method: :get, class: "btn btn-link px-3 me-2" %>
+          <%= button_to "Sign up for free", signup_path, method: :get, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

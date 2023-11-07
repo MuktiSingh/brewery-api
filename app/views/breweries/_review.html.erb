@@ -1,0 +1,21 @@
+<div class="card-body p-4">
+  <div class="d-flex flex-start">
+    <div>
+      <h5 class="fw-bold mb-1"><%= review.user.first_name + review.user.last_name %></h5>
+      <div class="d-flex align-items-center mb-3">
+        <p class="mb-0">
+          <h6>Rating : </h6>
+          <span class="badge bg-success"><%= review.rating %></span>
+        </p>
+        <a href="#!" class="link-muted"><i class="fas fa-pencil-alt ms-2"></i></a>
+        <a href="#!" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>
+        <a href="#!" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
+      </div>
+      <p class="mb-0">
+        <%= review.description %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<hr class="my-0" style="height: 1px;" />

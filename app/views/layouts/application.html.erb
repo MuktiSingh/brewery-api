@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Brewery</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'show_password' %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/navbar' %>
+    <% if controller_name == 'registrations' %>
+      <%= render 'layouts/login' %>
+    <% else %>
+      <div style="margin-top: 10vh">
+        <%= yield %>
+      </div>
+    <% end %>
+  </body>
+</html>

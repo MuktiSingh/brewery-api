@@ -1,0 +1,15 @@
+<tr>
+  <td><%= brewery['id'] %></td>
+  <td><%= brewery['name'] %></td>
+  <td><%= brewery['brewery_type'] %></td>
+  <td><%= brewery['address_1'] %></td>
+  <td><%= brewery['city'] %></td>
+  <td><%= brewery['state_province'] %></td>
+  <td><%= brewery['postal_code'] %></td>
+  <td><%= brewery['state'] %></td>
+  <td><%= brewery['country'] %></td>
+  <td><%= brewery['phone'] %></td>
+  <td><%= brewery['website_url'] %></td>
+  <td><%= brewery_average_rating(brewery['id']) %></td>
+  <td><%= link_to 'Show',  brewery_path(brewery['id']), class: 'btn btn-primary btn-sm me-2' %></td>
+</tr>

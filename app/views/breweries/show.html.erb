@@ -1,0 +1,107 @@
+<div class="container mt-4">
+  <div class="border p-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2><%= link_to "Breweries", breweries_path, class: "text-decoration-none", data: { turbo: "false" } %> / Show</h2>
+    </div>
+
+    <table class="table table-striped">
+      <tr>
+        <th>ID</th>
+        <td><%= @brewery['id'] %></td>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <td><%= @brewery['name'] %></td>
+      </tr>
+      <tr>
+        <th>Brewery Type</th>
+        <td><%= @brewery['brewery_type'] %></td>
+      </tr>
+      <tr>
+        <th>Brewery Address 1</th>
+        <td><%= @brewery['address_1'] %></td>
+      </tr>
+      <tr>
+        <th>City</th>
+        <td><%= @brewery['city'] %></td>
+      </tr>
+      <tr>
+        <th>State Province</th>
+        <td><%= @brewery['state_province'] %></td>
+      </tr>
+      <tr>
+        <th>Postal Code</th>
+        <td><%= @brewery['postal_code'] %></td>
+      </tr>
+      <tr>
+        <th>State</th>
+        <td><%= @brewery['state'] %></td>
+      </tr>
+      <tr>
+        <th>Country</th>
+        <td><%= @brewery['country'] %></td>
+      </tr>
+      <tr>
+        <th>Phone</th>
+        <td><%= @brewery['phone'] %></td>
+      </tr>
+      <tr>
+        <th>Rating</th>
+        <td><%= brewery_average_rating(@brewery['id']) %></td>
+      </tr>
+      <tr>
+        <th>Website Url</th>
+        <td><%= @brewery['website_url'] %></td>
+      </tr>
+    </table>
+
+    <div class="container my-5 py-5 text-dark">
+      <div class="row d-flex justify-content-center">
+        <div class="card">
+          <div class="card-body p-4">
+            <div class="d-flex flex-start w-100">
+              <div class="w-100">
+                <h5>Add a comment</h5>
+                <%= form_with(model: Review.new, url: add_review_breweries_path)  do |form| %>
+                  <div class="mb-3">
+                    <%= form.label :rating, class:"form-label"%>
+                    <%= form.select :rating, (1..5).to_a.reverse, {}, {class: "form-select"} %>
+                  </div>
+                  <div class="form-outline">
+                   Description goes here.
+                    <%= form.text_area :description, size: "100x5" %>
+                  </div>
+                  <div class="d-flex justify-content-between mt-3">
+                 <%= form.submit 'Submit', class:"btn btn-success btn-sm btn-lg" %>
+                 <%= form.hidden_field :user_id, value: current_user.id %>
+                 <%= form.hidden_field :brewery_id, value: @brewery['id'] %>
+                </div>
+                <% end %>
+                <div class="d-flex justify-content-between mt-3">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-5 py-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12 col-lg-10">
+          <div class="card text-dark">
+            <div class="card-body p-4">
+              <h4 class="mb-0">Recent Reveiws</h4>
+              <p class="fw-light">Latest reviews by users</p>
+            </div>
+            <%= render partial: 'review', collection: @reviews %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.link-muted { color: #aaa; } .link-muted:hover { color: #1266f1; }
+</style>
